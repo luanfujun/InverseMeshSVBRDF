@@ -108,9 +108,17 @@
   <div class="hero-body">
     <div class="columns is-centered">
       <div class="column is-8">
-        <img id="teaser" height="100%" src="static/imgs/teaser.png"/>
+        <img id="teaser" width="100%" src="static/imgs/teaser.png"/>
         <h2 class="subtitle has-text-centered">
           Our approach uses Monte Carlo differentiable rendering to jointly reconstruct PBR textures and an object mesh, which can easily be re-used in traditional graphics pipeline such as Blender or ARKit.
+        </h2>
+        <img id="teaser2" width="100%" src="static/imgs/3d_modeling.jpg"/>
+        <h2 class="subtitle has-text-centered">
+          Using our reconstructed 3D models in Blender (Cycle rendering).
+        </h2>
+        <img id="teaser2" width="100%" src="static/imgs/ar.png"/>
+        <h2 class="subtitle has-text-centered">
+          Using our reconstructed 3D models in Apple ARKit (object insertion).
         </h2>
       </div>
     </div>
@@ -126,13 +134,13 @@
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-Reconstructing the shape and appearance of real-world objects using measured 2D images has been a long-standing problem in computer vision.
-In this paper, we introduce a new analysis-by-synthesis technique capable of producing high-quality reconstructions through robust coarse-to-fine optimization and physics-based differentiable rendering.<br><br>
+            Reconstructing the shape and appearance of real-world objects using measured 2D images has been a long-standing problem in computer vision.
+            In this paper, we introduce a new analysis-by-synthesis technique capable of producing high-quality reconstructions through robust coarse-to-fine optimization and physics-based differentiable rendering.<br><br>
 
-Unlike most previous methods that handle geometry and reflectance largely separately, our method unifies the optimization of both by leveraging image gradients with respect to both object reflectance <em>and</em> geometry. 
-To obtain physically accurate gradient estimates, we develop a new GPU-based Monte Carlo differentiable renderer leveraging recent advances in differentiable rendering theory to offer unbiased gradients while enjoying better performance than existing tools like PyTorch3D and redner.
-To further improve robustness, we utilize several shape and material priors as well as a coarse-to-fine optimization strategy to reconstruct geometry.
-We demonstrate that our technique can produce reconstructions with higher quality than previous methods such as COLMAP and Kinect Fusion.
+            Unlike most previous methods that handle geometry and reflectance largely separately, our method unifies the optimization of both by leveraging image gradients with respect to both object reflectance <em>and</em> geometry. 
+            To obtain physically accurate gradient estimates, we develop a new GPU-based Monte Carlo differentiable renderer leveraging recent advances in differentiable rendering theory to offer unbiased gradients while enjoying better performance than existing tools like PyTorch3D and redner.
+            To further improve robustness, we utilize several shape and material priors as well as a coarse-to-fine optimization strategy to reconstruct geometry.
+            We demonstrate that our technique can produce reconstructions with higher quality than previous methods such as COLMAP and Kinect Fusion.
           </p>
 
         </div>
@@ -140,21 +148,39 @@ We demonstrate that our technique can produce reconstructions with higher qualit
     </div>
   </div>
   <!--/ Abstract. -->
+</section>
 
-
+<section class="hero results">
+  <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-8">
+            <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+              <source src="static/videos/table.mp4" type="video/mp4">
+            </video>
+             <video id="v1" width="100%" autoplay="" loop="" muted="" controls="">
+              <source src="static/videos/office.mp4" type="video/mp4">
+            </video>
+            <img id="result" width="100%" src="static/imgs/result.png"/>
+            <h2 class="subtitle has-text-centered">
+              More results of our method.
+            </h2>
+        </div>
+      </div>
+  </div>
+</section>
 
 
 <section class="section" id="BibTeX">
   <div class="container content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-@article{luan2021unified,
-  author    = {Luan, Fujun and Zhao, Shuang and Bala, Kavita and Dong, Zhao},
-  title     = {Unified Shape and SVBRDF Recovery using Differentiable Monte Carlo Rendering},
-  journal   = {ArXiv},
-  year      = {2021},
-}
-</code></pre>
+      @article{luan2021unified,
+        author    = {Luan, Fujun and Zhao, Shuang and Bala, Kavita and Dong, Zhao},
+        title     = {Unified Shape and SVBRDF Recovery using Differentiable Monte Carlo Rendering},
+        journal   = {ArXiv},
+        year      = {2021},
+      }
+    </code></pre>
   </div>
 </section>
     
