@@ -18,7 +18,6 @@
 
     gtag('config', 'G-PYVRSFMDRL');
   </script>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -34,6 +33,11 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <script src="https://threejs.org/build/three.js"></script>
+  <script src='https://threejs.org/examples/js/controls/OrbitControls.js'></script>
+  <script src='https://threejs.org/examples/js/loaders/OBJLoader.js'></script>
+  <script src="./static/js/mesh.js"></script>
 </head>
 <body>
 
@@ -108,7 +112,7 @@
   <div class="hero-body">
     <div class="columns is-centered">
       <div class="column is-8">
-        <img id="teaser" width="100%" src="static/imgs/teaser.png"/>
+        <span id="teaser_img" ><img id="teaser" width="100%" src="static/imgs/teaser.png"/></span>
         <h2 class="subtitle has-text-centered">
           Our approach takes multi-view photos of an object as input and uses Monte Carlo differentiable rendering to jointly reconstruct a set of PBR textures and a triangle mesh, which can easily be re-used in traditional computer graphics pipeline such as a path tracer or AR/VR environment.
         </h2>
@@ -167,6 +171,26 @@
               More results of our method. For each object, typically 50~100 views are captured on the hemisphere.
             </h2>
         </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="hero ipad">
+  <div class="hero-body">
+      <div class="columns is-centered">
+          <div class="column is-8" id="ipad">
+            <div style="width: 50%; float:left">
+              <img width="100%" src="static/imgs/ipad_lidar.jpg"/>
+            </div>
+            <div style="width: 50.01%; float:right">
+              <script>render('#ipad', 'static/scan/rabbit.obj', 'static/scan/rabbit.jpg');</script>
+            </div>
+
+            <h2 class="subtitle has-text-centered">
+              With iPad Pro LiDAR depth sensor, we can get a quick 3D scan of an object (try the textured WebGL object on the right, obtained using <a href="https://scaniverse.com/">Scaniverse</a> app).
+            </h2>
+          </div>
       </div>
   </div>
 </section>
