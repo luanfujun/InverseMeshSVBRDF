@@ -5,7 +5,7 @@ function render(id, objpath, texpath) {
 
     var renderer = new THREE.WebGLRenderer();
     var ratio = 1.34635417;
-    var width = document.querySelector('#teaser_img').offsetWidth / 2;
+    var width = document.querySelector('#teaser_img').offsetWidth;
     var height = width / ratio; 
     var camera = new THREE.PerspectiveCamera(75, 1.34635417, 0.1, 1000);
     renderer.setSize(width, height);
