@@ -17,7 +17,8 @@ function render(id, objpath, texpath) {
 
     var controls = new THREE.OrbitControls(camera, renderer.domElement);
     const texture = new THREE.TextureLoader().load(texpath);
-    var material = new THREE.MeshLambertMaterial({ map:texture });
+    
+    var material = texpath != '' ? new THREE.MeshLambertMaterial({ map:texture }) : new THREE.MeshPhongMaterial({color: 0xffffff, shading: THREE.FlatShading});
 
     var lightHolder = new THREE.Group();
 
