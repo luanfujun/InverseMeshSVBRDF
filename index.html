@@ -24,20 +24,31 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
-  <script src="https://threejs.org/build/three.js"></script>
-  <script src='https://threejs.org/examples/js/controls/OrbitControls.js'></script>
-  <script src='https://threejs.org/examples/js/loaders/OBJLoader.js'></script>
-  <script src="./static/js/mesh.js"></script>
+  <!-- Import maps polyfill -->
+  <!-- Remove this when import maps will be widely supported -->
+  <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+      
+  <script type="importmap">
+      {
+          "imports": {
+              "three": "https://unpkg.com/three/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three/examples/jsm/"
+          }
+      }
+  </script>
+
+  <!-- <script src="https://threejs.org/build/three.js"></script> -->
+  <!-- <script type="module" src='https://threejs.org/examples/jsm/controls/OrbitControls.js'></script> -->
+  <!-- <script type="module" src='https://threejs.org/examples/jsm/loaders/OBJLoader.js'></script> -->
+  <script type="module" src="./static/js/mesh.js"></script>
 </head>
 <body>
 
@@ -186,15 +197,14 @@
 <section class="hero ipad">
   <div class="hero-body">
       <div class="columns is-centered">
-          <div class="column is-8" id="ipad">
+          <div class="column is-8">
             <h2 class="subtitle has-text-centered">
               With <a href="https://www.apple.com/newsroom/2020/03/apple-unveils-new-ipad-pro-with-lidar-scanner-and-trackpad-support-in-ipados/">iPad Pro LiDAR</a> depth sensor, we can get a quick 3D scan of an object (try the WebGL object on the right, obtained using <a href="https://scaniverse.com/">Scaniverse</a> app).
             </h2>
             <div style="width: 49.9%; float:left">
               <img width="100%" src="static/imgs/ipad_lidar.jpg"/>
             </div>
-            <div style="width: 49.9%; float:right">
-              <script>render('#ipad', 'static/scan/rabbit.obj', 'static/scan/rabbit.jpg');</script>
+            <div style="width: 49.9%; float:right" id="ipad">
             </div>
             
             <div style="width: 99.8%;">
@@ -212,7 +222,7 @@
 <section class="hero azure">
   <div class="hero-body">
       <div class="columns is-centered">
-          <div class="column is-8" id="azure">
+          <div class="column is-8">
             <h2 class="subtitle has-text-centered">
                 With other low-cost depth sensors such as <a href="https://azure.microsoft.com/en-us/services/kinect-dk/">Microsoft Azure Kinect</a> or <a href="https://structure.io/structure-core">Structure Core</a>, we can also get a quick 3D scan of an object (try the WebGL object on the right, obtained using <a href="https://skanect.occipital.com/">Skanect Pro</a>).
             </h2>
@@ -220,8 +230,7 @@
             <div style="width: 49.9%; float:left">
               <img width="100%" src="static/imgs/azure.jpg"/>
             </div>
-            <div style="width: 49.9%; float:right">
-              <script>render('#azure', 'static/scan/turtle.obj', '');</script>
+            <div style="width: 49.9%; float:right" id="azure">
             </div>
 
             <div style="width: 99.8%;">

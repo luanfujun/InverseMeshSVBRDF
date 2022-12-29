@@ -1,4 +1,14 @@
 
+// import * as THREE from "https://threejs.org/build/three.module.js";
+// import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+// import { OBJLoader } from "https://threejs.org/examples/jsm/loaders/OBJLoader.js";
+
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+
+
+
 function render(id, objpath, texpath) {
     var scene = new THREE.Scene();
     scene.background = new THREE.Color(0x8FBCD4);
@@ -15,10 +25,12 @@ function render(id, objpath, texpath) {
 
     document.querySelector(id).appendChild(renderer.domElement);
 
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    var controls = new OrbitControls(camera, renderer.domElement);
     const texture = new THREE.TextureLoader().load(texpath);
     
-    var material = texpath != '' ? new THREE.MeshLambertMaterial({ map:texture }) : new THREE.MeshPhongMaterial({color: 0xffffff, shading: THREE.FlatShading});
+    var material = texpath != '' ? 
+        new THREE.MeshBasicMaterial({ map:texture }) : 
+        new THREE.MeshPhongMaterial({color: 0xffffff, flatShading: true});
 
     var lightHolder = new THREE.Group();
 
@@ -51,7 +63,7 @@ function render(id, objpath, texpath) {
         scene.add(object3d);
     }
 
-    var loader = new THREE.OBJLoader();
+    var loader = new OBJLoader();
     loader.load(objpath, callbackOnLoad, null, null, null);
 
     camera.position.z = 1;
@@ -67,3 +79,8 @@ function render(id, objpath, texpath) {
 
     animate();
 }
+
+$(document).ready(function(){
+    render('#ipad', 'static/scan/rabbit.obj', 'static/scan/rabbit.jpg');
+    render('#azure', 'static/scan/turtle.obj', '');
+});
